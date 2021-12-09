@@ -1,0 +1,5 @@
+---
+- hosts: nucs
+  gather_facts: True
+  roles:
+    - 01-update-ubuntu

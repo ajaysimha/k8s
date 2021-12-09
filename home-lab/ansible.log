@@ -1,0 +1,249 @@
+2021-12-08 10:38:03,145 p=9253 u=simhaaj n=ansible | 192.168.1.201 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@192.168.1.201: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 10:38:03,146 p=9253 u=simhaaj n=ansible | 192.168.1.202 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@192.168.1.202: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 10:38:03,147 p=9253 u=simhaaj n=ansible | 192.168.1.203 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@192.168.1.203: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 12:55:21,665 p=23473 u=simhaaj n=ansible | 192.168.1.203 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 12:55:22,473 p=23473 u=simhaaj n=ansible | 192.168.1.202 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 12:55:24,632 p=23473 u=simhaaj n=ansible | 192.168.1.201 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 12:58:30,185 p=23757 u=simhaaj n=ansible | 192.168.1.201 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 12:58:30,325 p=23757 u=simhaaj n=ansible | 192.168.1.202 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 12:58:31,011 p=23757 u=simhaaj n=ansible | 192.168.1.203 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:03:44,432 p=24756 u=simhaaj n=ansible | 192.168.1.203 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:03:44,477 p=24756 u=simhaaj n=ansible | 192.168.1.201 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:03:44,979 p=24756 u=simhaaj n=ansible | 192.168.1.202 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:38:09,984 p=27581 u=simhaaj n=ansible | 192.168.1.201 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:38:12,531 p=27581 u=simhaaj n=ansible | 192.168.1.202 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:38:12,532 p=27581 u=simhaaj n=ansible | 192.168.1.203 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:44:24,832 p=27948 u=simhaaj n=ansible | 192.168.1.202 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@192.168.1.202: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 13:44:24,834 p=27948 u=simhaaj n=ansible | 192.168.1.201 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@192.168.1.201: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 13:44:24,834 p=27948 u=simhaaj n=ansible | 192.168.1.203 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@192.168.1.203: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 13:47:17,781 p=28480 u=simhaaj n=ansible | 192.168.1.202 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@192.168.1.202: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 13:47:17,783 p=28480 u=simhaaj n=ansible | 192.168.1.203 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@192.168.1.203: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 13:47:19,469 p=28480 u=simhaaj n=ansible | 192.168.1.201 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 13:48:54,958 p=29451 u=simhaaj n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: nuc1
+
+2021-12-08 13:48:54,958 p=29451 u=simhaaj n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2021-12-08 13:49:45,054 p=29981 u=simhaaj n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: nuc1
+
+2021-12-08 13:49:45,055 p=29981 u=simhaaj n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2021-12-08 13:50:33,171 p=30441 u=simhaaj n=ansible | nuc1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:22:23,484 p=32656 u=simhaaj n=ansible | nuc2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:24:15,880 p=32767 u=simhaaj n=ansible | nuc3 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ansible@192.168.1.203: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2021-12-08 14:24:18,532 p=32767 u=simhaaj n=ansible | nuc2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:24:21,017 p=32767 u=simhaaj n=ansible | nuc1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:24:42,841 p=32882 u=simhaaj n=ansible | nuc1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:24:43,088 p=32882 u=simhaaj n=ansible | nuc2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:24:46,111 p=32882 u=simhaaj n=ansible | nuc3 | FAILED! => {
+    "msg": "Missing sudo password"
+}
+2021-12-08 14:26:51,328 p=33487 u=simhaaj n=ansible | nuc3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:26:51,454 p=33487 u=simhaaj n=ansible | nuc2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 14:26:51,454 p=33487 u=simhaaj n=ansible | nuc1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-08 23:16:30,235 p=87909 u=simhaaj n=ansible | - Role 01-init-servers was created successfully
+2021-12-08 23:29:19,210 p=89107 u=simhaaj n=ansible | ERROR! the playbook: ./init-servers.yaml could not be found
+2021-12-08 23:30:20,005 p=89213 u=simhaaj n=ansible | ERROR! conflicting action statements: hosts, gather_facts
+
+The error appears to be in '/Users/simhaaj/Ansible/simha-home/01-init-servers/tasks/main.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# tasks file for 01-init-servers
+- hosts: nucs
+  ^ here
+
+2021-12-08 23:32:02,751 p=89264 u=simhaaj n=ansible | ERROR! The tasks/main.yml file for role '01-init-servers' must contain a list of tasks
+
+The error appears to be in '/Users/simhaaj/Ansible/simha-home/01-init-servers/tasks/main.yml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# tasks file for 01-init-servers
+tasks:
+^ here
+
+2021-12-08 23:32:43,935 p=89490 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-08 23:32:43,952 p=89490 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-08 23:32:47,644 p=89490 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:32:48,666 p=89490 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:32:50,098 p=89490 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:32:50,118 p=89490 u=simhaaj n=ansible | TASK [01-init-servers : Update apt-get repo and cache] *********************************************************************************
+2021-12-08 23:32:53,975 p=89490 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-08 23:32:54,792 p=89490 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-08 23:32:54,827 p=89490 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-08 23:32:54,874 p=89490 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-08 23:32:54,874 p=89490 u=simhaaj n=ansible | nuc1                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-08 23:32:54,874 p=89490 u=simhaaj n=ansible | nuc2                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-08 23:32:54,874 p=89490 u=simhaaj n=ansible | nuc3                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-08 23:33:56,600 p=89948 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-08 23:33:56,619 p=89948 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-08 23:33:59,229 p=89948 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:33:59,233 p=89948 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:33:59,235 p=89948 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:33:59,254 p=89948 u=simhaaj n=ansible | TASK [01-init-servers : Update apt-get repo and cache] *********************************************************************************
+2021-12-08 23:34:02,917 p=89948 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:34:02,918 p=89948 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:34:02,919 p=89948 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:34:02,931 p=89948 u=simhaaj n=ansible | TASK [01-init-servers : Upgrade all apt packages] **************************************************************************************
+2021-12-08 23:34:12,133 p=89948 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-08 23:34:19,912 p=89948 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-08 23:35:30,582 p=89948 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-08 23:35:30,634 p=89948 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-08 23:35:30,635 p=89948 u=simhaaj n=ansible | nuc1                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-08 23:35:30,635 p=89948 u=simhaaj n=ansible | nuc2                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-08 23:35:30,635 p=89948 u=simhaaj n=ansible | nuc3                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-12-08 23:36:38,907 p=90364 u=simhaaj n=ansible | - Role 01-update-ubuntu was created successfully
+2021-12-08 23:40:05,189 p=90499 u=simhaaj n=ansible | ERROR! the role '01-init-servers' was not found in /Users/simhaaj/Ansible/simha-home/roles:/Users/simhaaj/Ansible/simha-home/roles:/Users/simhaaj/Ansible/simha-home
+
+The error appears to be in '/Users/simhaaj/Ansible/simha-home/update-servers.yaml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - 01-init-servers
+      ^ here
+
+2021-12-08 23:40:30,446 p=90526 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-08 23:40:30,465 p=90526 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-08 23:40:33,012 p=90526 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:40:33,062 p=90526 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:40:33,092 p=90526 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:40:33,112 p=90526 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-08 23:40:34,220 p=90526 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:40:34,220 p=90526 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:40:34,221 p=90526 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:40:34,230 p=90526 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-08 23:40:35,745 p=90526 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:40:35,790 p=90526 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:40:35,790 p=90526 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:40:35,803 p=90526 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-08 23:40:36,341 p=90526 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-08 23:40:36,349 p=90526 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-08 23:40:36,438 p=90526 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-08 23:40:36,453 p=90526 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-08 23:40:36,475 p=90526 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-08 23:40:36,493 p=90526 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-08 23:40:36,504 p=90526 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | nuc1                       : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | nuc2                       : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | nuc3                       : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
