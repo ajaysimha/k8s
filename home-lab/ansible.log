@@ -247,3 +247,111 @@ The offending line appears to be:
 2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | nuc1                       : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | nuc2                       : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 2021-12-08 23:40:36,550 p=90526 u=simhaaj n=ansible | nuc3                       : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-09 11:11:34,903 p=64536 u=simhaaj n=ansible | - Role 02-k8s-prep was created successfully
+2021-12-11 10:02:41,740 p=41325 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-11 10:02:41,756 p=41325 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-11 10:02:44,142 p=41325 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-11 10:02:44,213 p=41325 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-11 10:02:44,217 p=41325 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:02:44,237 p=41325 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-11 10:02:47,702 p=41325 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-11 10:02:47,806 p=41325 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-11 10:02:47,856 p=41325 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-11 10:02:47,866 p=41325 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-11 10:02:49,326 p=41325 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:02:51,890 p=41325 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-11 10:02:52,952 p=41325 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-11 10:02:52,963 p=41325 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-11 10:02:53,536 p=41325 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:02:53,537 p=41325 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-11 10:02:53,537 p=41325 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-11 10:02:53,551 p=41325 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-11 10:02:53,590 p=41325 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-11 10:02:53,591 p=41325 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-11 10:02:53,600 p=41325 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-11 10:02:53,658 p=41325 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-11 10:02:53,700 p=41325 u=simhaaj n=ansible | fatal: [nuc1]: FAILED! => {}
+
+MSG:
+
+The conditional check 'kubernetes_installed is changed' failed. The error was: The 'changed' test expects a dictionary
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/02-k8s-prep/tasks/main.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# tasks file for 02-k8s-prep
+- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+  ^ here
+
+
+2021-12-11 10:02:53,701 p=41325 u=simhaaj n=ansible | fatal: [nuc2]: FAILED! => {}
+
+MSG:
+
+The conditional check 'kubernetes_installed is changed' failed. The error was: The 'changed' test expects a dictionary
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/02-k8s-prep/tasks/main.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# tasks file for 02-k8s-prep
+- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+  ^ here
+
+
+2021-12-11 10:02:53,718 p=41325 u=simhaaj n=ansible | fatal: [nuc3]: FAILED! => {}
+
+MSG:
+
+The conditional check 'kubernetes_installed is changed' failed. The error was: The 'changed' test expects a dictionary
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/02-k8s-prep/tasks/main.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# tasks file for 02-k8s-prep
+- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+  ^ here
+
+
+2021-12-11 10:02:53,721 p=41325 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-11 10:02:53,721 p=41325 u=simhaaj n=ansible | nuc1                       : ok=4    changed=2    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-11 10:02:53,721 p=41325 u=simhaaj n=ansible | nuc2                       : ok=4    changed=2    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-11 10:02:53,722 p=41325 u=simhaaj n=ansible | nuc3                       : ok=4    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-11 10:04:21,414 p=41549 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-11 10:04:21,432 p=41549 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-11 10:04:23,655 p=41549 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-11 10:04:23,702 p=41549 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:04:23,754 p=41549 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-11 10:04:23,775 p=41549 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-11 10:04:24,784 p=41549 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:04:24,785 p=41549 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-11 10:04:24,788 p=41549 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-11 10:04:24,816 p=41549 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-11 10:04:26,194 p=41549 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-11 10:04:26,196 p=41549 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:04:26,223 p=41549 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-11 10:04:26,236 p=41549 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-11 10:04:26,699 p=41549 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-11 10:04:26,702 p=41549 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-11 10:04:26,785 p=41549 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-11 10:04:26,798 p=41549 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-11 10:04:26,822 p=41549 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-11 10:04:26,841 p=41549 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-11 10:04:26,853 p=41549 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-11 10:04:26,893 p=41549 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-11 10:04:27,391 p=41549 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-11 10:04:27,407 p=41549 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-11 10:04:27,467 p=41549 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-11 10:04:27,478 p=41549 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-11 10:04:27,988 p=41549 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-11 10:04:27,989 p=41549 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-11 10:04:28,091 p=41549 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-11 10:04:28,137 p=41549 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-11 10:04:28,137 p=41549 u=simhaaj n=ansible | nuc1                       : ok=6    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-11 10:04:28,137 p=41549 u=simhaaj n=ansible | nuc2                       : ok=6    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-11 10:04:28,138 p=41549 u=simhaaj n=ansible | nuc3                       : ok=6    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

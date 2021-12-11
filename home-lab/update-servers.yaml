@@ -3,3 +3,4 @@
   gather_facts: True
   roles:
     - 01-update-ubuntu
+    - 02-k8s-prep
