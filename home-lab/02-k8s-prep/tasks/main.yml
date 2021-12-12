@@ -10,3 +10,23 @@
     regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
     replace: '# \1'
 
+- name: Initialize mac-list
+  set_fact:
+    mac_list: []
+  delegate_to: localhost
+
+- name: Get the MAC address
+  set_fact: 
+    mac_list: "{{ mac_list + hostvars[item]['ansible_interfaces'] | difference(['lo']) | map('regex_replace', '^(.*)$', 'ansible_\\1' ) | map('extract', hostvars[item], 'macaddress') }}"
+  loop:
+    "{{ ansible_play_hosts_all }}"
+  run_once: yes
+  delegate_to: localhost
+
+- name: Print mac_list
+  fail: 
+    msg: "Macaddresses on k8s hosts not unique"
+  when:
+    mac_list | length != mac_list | unique | length
+  delegate_to: localhost
+  run_once: yes
