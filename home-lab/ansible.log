@@ -1591,3 +1591,626 @@ Macaddresses on k8s hosts not unique
 2021-12-12 12:09:37,248 p=99146 u=simhaaj n=ansible | nuc1                       : ok=8    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
 2021-12-12 12:09:37,248 p=99146 u=simhaaj n=ansible | nuc2                       : ok=7    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 2021-12-12 12:09:37,248 p=99146 u=simhaaj n=ansible | nuc3                       : ok=7    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 16:45:50,812 p=26990 u=simhaaj n=ansible | ERROR! couldn't resolve module/action 'modeprobe'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/01-update-ubuntu/tasks/main.yml': line 23, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Make sure br_netfilter module is loaded
+  ^ here
+
+2021-12-12 16:46:38,130 p=27061 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 16:46:38,146 p=27061 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 16:46:40,449 p=27061 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:46:40,532 p=27061 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:46:40,583 p=27061 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:46:40,604 p=27061 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 16:46:44,108 p=27061 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 16:46:44,109 p=27061 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 16:46:44,109 p=27061 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 16:46:44,120 p=27061 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 16:46:45,470 p=27061 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:46:45,567 p=27061 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:46:45,575 p=27061 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:46:45,586 p=27061 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 16:46:46,166 p=27061 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:46:46,170 p=27061 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:46:46,176 p=27061 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:46:46,189 p=27061 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 16:46:46,215 p=27061 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 16:46:46,234 p=27061 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 16:46:46,246 p=27061 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 16:46:46,259 p=27061 u=simhaaj n=ansible | TASK [01-update-ubuntu : Make sure br_netfilter module is loaded] **********************************************************************
+2021-12-12 16:46:46,765 p=27061 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:46:46,772 p=27061 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:46:46,866 p=27061 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:46:46,904 p=27061 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 16:46:47,490 p=27061 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 16:46:47,504 p=27061 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 16:46:47,529 p=27061 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 16:46:47,540 p=27061 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 16:46:48,047 p=27061 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:46:48,115 p=27061 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:46:48,119 p=27061 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:46:48,137 p=27061 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 16:46:48,166 p=27061 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 16:46:48,189 p=27061 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 16:46:48,201 p=27061 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 16:46:48,237 p=27061 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 16:46:48,281 p=27061 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 16:46:48,304 p=27061 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 16:46:48,326 p=27061 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 16:46:48,344 p=27061 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 16:46:48,366 p=27061 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 16:46:48,411 p=27061 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 16:46:48,412 p=27061 u=simhaaj n=ansible | nuc1                       : ok=9    changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2021-12-12 16:46:48,412 p=27061 u=simhaaj n=ansible | nuc2                       : ok=8    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 16:46:48,412 p=27061 u=simhaaj n=ansible | nuc3                       : ok=8    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 16:47:23,036 p=27321 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 16:47:23,050 p=27321 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 16:47:24,533 p=27321 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:47:24,614 p=27321 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:47:24,660 p=27321 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:47:24,680 p=27321 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 16:47:25,600 p=27321 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:47:25,601 p=27321 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:47:25,606 p=27321 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:47:25,619 p=27321 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 16:47:26,969 p=27321 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:47:26,970 p=27321 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:47:27,072 p=27321 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:47:27,082 p=27321 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 16:47:27,563 p=27321 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:47:27,570 p=27321 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:47:27,570 p=27321 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:47:27,585 p=27321 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 16:47:27,609 p=27321 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 16:47:27,630 p=27321 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 16:47:27,642 p=27321 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 16:47:27,654 p=27321 u=simhaaj n=ansible | TASK [01-update-ubuntu : Make sure br_netfilter module is loaded] **********************************************************************
+2021-12-12 16:47:28,122 p=27321 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:47:28,126 p=27321 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:47:28,200 p=27321 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:47:28,238 p=27321 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 16:47:28,750 p=27321 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 16:47:28,828 p=27321 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 16:47:28,836 p=27321 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 16:47:28,848 p=27321 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 16:47:29,352 p=27321 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:47:29,353 p=27321 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:47:29,446 p=27321 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:47:29,463 p=27321 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 16:47:29,491 p=27321 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 16:47:29,513 p=27321 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 16:47:29,525 p=27321 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 16:47:29,561 p=27321 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 16:47:29,609 p=27321 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 16:47:29,631 p=27321 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 16:47:29,653 p=27321 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 16:47:29,672 p=27321 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 16:47:29,693 p=27321 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 16:47:29,740 p=27321 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 16:47:29,740 p=27321 u=simhaaj n=ansible | nuc1                       : ok=9    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2021-12-12 16:47:29,740 p=27321 u=simhaaj n=ansible | nuc2                       : ok=8    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 16:47:29,740 p=27321 u=simhaaj n=ansible | nuc3                       : ok=8    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 16:48:54,517 p=27846 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 16:48:54,532 p=27846 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 16:48:56,758 p=27846 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:48:56,799 p=27846 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:48:56,819 p=27846 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:48:56,840 p=27846 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 16:48:57,769 p=27846 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:48:57,769 p=27846 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:48:57,774 p=27846 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:48:57,786 p=27846 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 16:48:59,150 p=27846 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:48:59,164 p=27846 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:48:59,222 p=27846 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:48:59,235 p=27846 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 16:48:59,718 p=27846 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:48:59,719 p=27846 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:48:59,840 p=27846 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:48:59,853 p=27846 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 16:48:59,878 p=27846 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 16:48:59,898 p=27846 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 16:48:59,911 p=27846 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 16:48:59,950 p=27846 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 16:49:00,469 p=27846 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 16:49:00,470 p=27846 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 16:49:00,479 p=27846 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 16:49:00,490 p=27846 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 16:49:00,997 p=27846 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:49:00,998 p=27846 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:49:01,007 p=27846 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:49:01,023 p=27846 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 16:49:01,052 p=27846 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 16:49:01,075 p=27846 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 16:49:01,087 p=27846 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 16:49:01,125 p=27846 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 16:49:01,172 p=27846 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 16:49:01,196 p=27846 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 16:49:01,218 p=27846 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 16:49:01,237 p=27846 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 16:49:01,260 p=27846 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 16:49:01,271 p=27846 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 16:49:01,780 p=27846 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 16:49:01,781 p=27846 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 16:49:01,781 p=27846 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 16:49:01,827 p=27846 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 16:49:01,827 p=27846 u=simhaaj n=ansible | nuc1                       : ok=9    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2021-12-12 16:49:01,827 p=27846 u=simhaaj n=ansible | nuc2                       : ok=8    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 16:49:01,827 p=27846 u=simhaaj n=ansible | nuc3                       : ok=8    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:46:56,097 p=57079 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 21:46:56,117 p=57079 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 21:46:58,472 p=57079 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:46:58,489 p=57079 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:46:59,034 p=57079 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:46:59,053 p=57079 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 21:47:00,050 p=57079 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:47:02,404 p=57079 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:47:02,405 p=57079 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:47:02,415 p=57079 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 21:47:03,840 p=57079 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:47:03,852 p=57079 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:47:06,997 p=57079 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:47:07,007 p=57079 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 21:47:07,523 p=57079 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:47:07,524 p=57079 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:47:07,592 p=57079 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:47:07,606 p=57079 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 21:47:07,629 p=57079 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:47:07,648 p=57079 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 21:47:07,660 p=57079 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 21:47:07,697 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 21:47:08,217 p=57079 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:47:08,295 p=57079 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:47:08,331 p=57079 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:47:08,342 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 21:47:08,832 p=57079 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:47:08,841 p=57079 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:47:08,916 p=57079 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:47:08,933 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 21:47:08,961 p=57079 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 21:47:08,983 p=57079 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 21:47:08,994 p=57079 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 21:47:09,030 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 21:47:09,080 p=57079 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 21:47:09,102 p=57079 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 21:47:09,124 p=57079 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 21:47:09,141 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 21:47:09,162 p=57079 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:47:09,173 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 21:47:09,748 p=57079 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:47:09,749 p=57079 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:47:09,778 p=57079 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:47:09,789 p=57079 u=simhaaj n=ansible | TASK [02-k8s-prep : Add br_netfilter to k8s.conf file] *********************************************************************************
+2021-12-12 21:47:10,299 p=57079 u=simhaaj n=ansible | fatal: [nuc3]: FAILED! => {
+    "changed": false,
+    "rc": 257
+}
+
+MSG:
+
+Destination /etc/modules-load.d/k8s.conf does not exist !
+
+2021-12-12 21:47:10,372 p=57079 u=simhaaj n=ansible | fatal: [nuc1]: FAILED! => {
+    "changed": false,
+    "rc": 257
+}
+
+MSG:
+
+Destination /etc/modules-load.d/k8s.conf does not exist !
+
+2021-12-12 21:47:10,392 p=57079 u=simhaaj n=ansible | fatal: [nuc2]: FAILED! => {
+    "changed": false,
+    "rc": 257
+}
+
+MSG:
+
+Destination /etc/modules-load.d/k8s.conf does not exist !
+
+2021-12-12 21:47:10,394 p=57079 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 21:47:10,395 p=57079 u=simhaaj n=ansible | nuc1                       : ok=9    changed=2    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2021-12-12 21:47:10,395 p=57079 u=simhaaj n=ansible | nuc2                       : ok=8    changed=2    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:47:10,395 p=57079 u=simhaaj n=ansible | nuc3                       : ok=8    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:50:02,677 p=58065 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 21:50:02,693 p=58065 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 21:50:04,935 p=58065 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:50:05,009 p=58065 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:50:05,080 p=58065 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:50:05,101 p=58065 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 21:50:06,020 p=58065 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:50:06,023 p=58065 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:50:06,024 p=58065 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:50:06,035 p=58065 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 21:50:07,390 p=58065 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:50:07,391 p=58065 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:50:07,406 p=58065 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:50:07,418 p=58065 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 21:50:07,885 p=58065 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:50:07,890 p=58065 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:50:07,963 p=58065 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:50:07,976 p=58065 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 21:50:07,999 p=58065 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:50:08,018 p=58065 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 21:50:08,029 p=58065 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 21:50:08,070 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 21:50:08,566 p=58065 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:50:08,572 p=58065 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:50:08,572 p=58065 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:50:08,583 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 21:50:09,076 p=58065 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:50:09,081 p=58065 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:50:09,157 p=58065 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:50:09,174 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 21:50:09,201 p=58065 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 21:50:09,222 p=58065 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 21:50:09,233 p=58065 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 21:50:09,269 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 21:50:09,316 p=58065 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 21:50:09,339 p=58065 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 21:50:09,359 p=58065 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 21:50:09,376 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 21:50:09,398 p=58065 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:50:09,409 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 21:50:09,905 p=58065 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:50:09,907 p=58065 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:50:09,911 p=58065 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:50:09,921 p=58065 u=simhaaj n=ansible | TASK [02-k8s-prep : Add br_netfilter to k8s.conf file] *********************************************************************************
+2021-12-12 21:50:10,420 p=58065 u=simhaaj n=ansible | fatal: [nuc3]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+missing required arguments: path
+
+2021-12-12 21:50:10,421 p=58065 u=simhaaj n=ansible | fatal: [nuc1]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+missing required arguments: path
+
+2021-12-12 21:50:10,504 p=58065 u=simhaaj n=ansible | fatal: [nuc2]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+missing required arguments: path
+
+2021-12-12 21:50:10,507 p=58065 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 21:50:10,507 p=58065 u=simhaaj n=ansible | nuc1                       : ok=9    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2021-12-12 21:50:10,508 p=58065 u=simhaaj n=ansible | nuc2                       : ok=8    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:50:10,508 p=58065 u=simhaaj n=ansible | nuc3                       : ok=8    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:51:32,545 p=58411 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 21:51:32,558 p=58411 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 21:51:34,682 p=58411 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:51:34,703 p=58411 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:51:34,738 p=58411 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:51:34,759 p=58411 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 21:51:35,687 p=58411 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:51:35,693 p=58411 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:51:35,750 p=58411 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:51:35,760 p=58411 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 21:51:37,097 p=58411 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:51:37,113 p=58411 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:51:37,132 p=58411 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:51:37,143 p=58411 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 21:51:37,605 p=58411 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:51:37,611 p=58411 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:51:37,611 p=58411 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:51:37,625 p=58411 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 21:51:37,649 p=58411 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:51:37,668 p=58411 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 21:51:37,680 p=58411 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 21:51:37,720 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 21:51:38,231 p=58411 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:51:38,232 p=58411 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:51:38,234 p=58411 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:51:38,245 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 21:51:38,744 p=58411 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:51:38,751 p=58411 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:51:38,751 p=58411 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:51:38,769 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 21:51:38,796 p=58411 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 21:51:38,819 p=58411 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 21:51:38,830 p=58411 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 21:51:38,865 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 21:51:38,911 p=58411 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 21:51:38,933 p=58411 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 21:51:38,953 p=58411 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 21:51:38,973 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 21:51:38,994 p=58411 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:51:39,004 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 21:51:39,499 p=58411 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:51:39,504 p=58411 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:51:39,591 p=58411 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:51:39,604 p=58411 u=simhaaj n=ansible | TASK [02-k8s-prep : Add br_netfilter to k8s.conf file] *********************************************************************************
+2021-12-12 21:51:40,581 p=58411 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:51:40,590 p=58411 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:51:40,592 p=58411 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:51:40,640 p=58411 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 21:51:40,640 p=58411 u=simhaaj n=ansible | nuc1                       : ok=10   changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2021-12-12 21:51:40,640 p=58411 u=simhaaj n=ansible | nuc2                       : ok=9    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:51:40,640 p=58411 u=simhaaj n=ansible | nuc3                       : ok=9    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:56:00,738 p=58842 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 21:56:00,755 p=58842 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 21:56:02,852 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:02,893 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:02,959 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:02,980 p=58842 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 21:56:03,892 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:03,894 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:03,894 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:03,904 p=58842 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 21:56:05,259 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:05,261 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:05,288 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:05,299 p=58842 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 21:56:05,767 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:05,768 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:05,768 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:05,780 p=58842 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 21:56:05,803 p=58842 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:56:05,822 p=58842 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 21:56:05,834 p=58842 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 21:56:05,873 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 21:56:06,383 p=58842 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:56:06,384 p=58842 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:56:06,388 p=58842 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:56:06,399 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 21:56:06,894 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:06,896 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:06,897 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:06,912 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 21:56:06,938 p=58842 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 21:56:06,960 p=58842 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 21:56:06,971 p=58842 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 21:56:07,003 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 21:56:07,051 p=58842 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 21:56:07,072 p=58842 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 21:56:07,094 p=58842 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 21:56:07,113 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 21:56:07,134 p=58842 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:56:07,145 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 21:56:07,644 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:07,651 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:07,747 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:07,761 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Add br_netfilter to k8s.conf file] *********************************************************************************
+2021-12-12 21:56:08,723 p=58842 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:56:08,724 p=58842 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:56:08,724 p=58842 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:56:08,734 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Ensure iptables correctly see bridged traffic] *********************************************************************
+2021-12-12 21:56:09,542 p=58842 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:56:09,543 p=58842 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:56:09,548 p=58842 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:56:09,559 p=58842 u=simhaaj n=ansible | TASK [02-k8s-prep : Run sysctl system] *************************************************************************************************
+2021-12-12 21:56:09,893 p=58842 u=simhaaj n=ansible | fatal: [nuc1]: FAILED! => {
+    "changed": true,
+    "cmd": "sysctl system",
+    "delta": "0:00:00.005535",
+    "end": "2021-12-13 02:56:09.893898",
+    "rc": 255,
+    "start": "2021-12-13 02:56:09.888363"
+}
+
+STDERR:
+
+sysctl: cannot stat /proc/sys/system: No such file or directory
+
+
+MSG:
+
+non-zero return code
+
+2021-12-12 21:56:09,915 p=58842 u=simhaaj n=ansible | fatal: [nuc2]: FAILED! => {
+    "changed": true,
+    "cmd": "sysctl system",
+    "delta": "0:00:00.005504",
+    "end": "2021-12-13 02:56:09.917381",
+    "rc": 255,
+    "start": "2021-12-13 02:56:09.911877"
+}
+
+STDERR:
+
+sysctl: cannot stat /proc/sys/system: No such file or directory
+
+
+MSG:
+
+non-zero return code
+
+2021-12-12 21:56:09,922 p=58842 u=simhaaj n=ansible | fatal: [nuc3]: FAILED! => {
+    "changed": true,
+    "cmd": "sysctl system",
+    "delta": "0:00:00.005796",
+    "end": "2021-12-13 02:56:09.925874",
+    "rc": 255,
+    "start": "2021-12-13 02:56:09.920078"
+}
+
+STDERR:
+
+sysctl: cannot stat /proc/sys/system: No such file or directory
+
+
+MSG:
+
+non-zero return code
+
+2021-12-12 21:56:09,926 p=58842 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 21:56:09,926 p=58842 u=simhaaj n=ansible | nuc1                       : ok=11   changed=2    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2021-12-12 21:56:09,926 p=58842 u=simhaaj n=ansible | nuc2                       : ok=10   changed=2    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:56:09,926 p=58842 u=simhaaj n=ansible | nuc3                       : ok=10   changed=2    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:57:34,642 p=59259 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 21:57:34,658 p=59259 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 21:57:36,711 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:36,736 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:36,862 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:36,882 p=59259 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 21:57:37,794 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:37,795 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:37,804 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:37,813 p=59259 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 21:57:39,158 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:39,165 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:39,185 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:39,198 p=59259 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 21:57:39,660 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:39,661 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:39,666 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:39,679 p=59259 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 21:57:39,703 p=59259 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:57:39,724 p=59259 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 21:57:39,738 p=59259 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 21:57:39,776 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 21:57:40,251 p=59259 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:57:40,252 p=59259 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:57:40,255 p=59259 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:57:40,266 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 21:57:40,764 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:40,764 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:40,764 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:40,778 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 21:57:40,806 p=59259 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 21:57:40,829 p=59259 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 21:57:40,839 p=59259 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 21:57:40,875 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 21:57:40,921 p=59259 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 21:57:40,944 p=59259 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 21:57:40,964 p=59259 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 21:57:40,983 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 21:57:41,004 p=59259 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:57:41,015 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 21:57:41,514 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:41,515 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:41,516 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:41,528 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Add br_netfilter to k8s.conf file] *********************************************************************************
+2021-12-12 21:57:42,463 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:42,465 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:42,465 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:42,476 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Ensure iptables correctly see bridged traffic] *********************************************************************
+2021-12-12 21:57:43,078 p=59259 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:57:43,088 p=59259 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:57:43,097 p=59259 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:57:43,107 p=59259 u=simhaaj n=ansible | TASK [02-k8s-prep : Run sysctl system] *************************************************************************************************
+2021-12-12 21:57:43,132 p=59259 u=simhaaj n=ansible | fatal: [nuc1]: FAILED! => {}
+
+MSG:
+
+The conditional check 'result.changed' failed. The error was: error while evaluating conditional (result.changed): 'result' is undefined
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/02-k8s-prep/tasks/main.yml': line 52, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Run sysctl system
+  ^ here
+
+
+2021-12-12 21:57:43,152 p=59259 u=simhaaj n=ansible | fatal: [nuc2]: FAILED! => {}
+
+MSG:
+
+The conditional check 'result.changed' failed. The error was: error while evaluating conditional (result.changed): 'result' is undefined
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/02-k8s-prep/tasks/main.yml': line 52, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Run sysctl system
+  ^ here
+
+
+2021-12-12 21:57:43,163 p=59259 u=simhaaj n=ansible | fatal: [nuc3]: FAILED! => {}
+
+MSG:
+
+The conditional check 'result.changed' failed. The error was: error while evaluating conditional (result.changed): 'result' is undefined
+
+The error appears to be in '/Users/simhaaj/k8s/home-lab/02-k8s-prep/tasks/main.yml': line 52, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Run sysctl system
+  ^ here
+
+
+2021-12-12 21:57:43,166 p=59259 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 21:57:43,166 p=59259 u=simhaaj n=ansible | nuc1                       : ok=11   changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2021-12-12 21:57:43,167 p=59259 u=simhaaj n=ansible | nuc2                       : ok=10   changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:57:43,167 p=59259 u=simhaaj n=ansible | nuc3                       : ok=10   changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:58:16,604 p=59630 u=simhaaj n=ansible | PLAY [nucs] ****************************************************************************************************************************
+2021-12-12 21:58:16,617 p=59630 u=simhaaj n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-12-12 21:58:18,103 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:18,107 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:18,120 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:18,139 p=59630 u=simhaaj n=ansible | TASK [01-update-ubuntu : Update apt-get repo and cache] ********************************************************************************
+2021-12-12 21:58:19,060 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:19,061 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:19,062 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:19,073 p=59630 u=simhaaj n=ansible | TASK [01-update-ubuntu : Upgrade all apt packages] *************************************************************************************
+2021-12-12 21:58:20,428 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:20,436 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:20,456 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:20,466 p=59630 u=simhaaj n=ansible | TASK [01-update-ubuntu : Check if a reboot is needed on all servers] *******************************************************************
+2021-12-12 21:58:20,937 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:20,938 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:20,939 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:20,951 p=59630 u=simhaaj n=ansible | TASK [01-update-ubuntu : Reboot the box if kernel updated] *****************************************************************************
+2021-12-12 21:58:20,975 p=59630 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:58:20,994 p=59630 u=simhaaj n=ansible | skipping: [nuc2]
+2021-12-12 21:58:21,006 p=59630 u=simhaaj n=ansible | skipping: [nuc3]
+2021-12-12 21:58:21,045 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP since kubernetes can't work with swap enabled (1/2)] **************************************************
+2021-12-12 21:58:21,519 p=59630 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:58:21,529 p=59630 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:58:21,529 p=59630 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:58:21,542 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)] *****************************************
+2021-12-12 21:58:22,000 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:22,001 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:22,001 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:22,016 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Initialize mac-list] ***********************************************************************************************
+2021-12-12 21:58:22,044 p=59630 u=simhaaj n=ansible | ok: [nuc1 -> localhost]
+2021-12-12 21:58:22,066 p=59630 u=simhaaj n=ansible | ok: [nuc2 -> localhost]
+2021-12-12 21:58:22,078 p=59630 u=simhaaj n=ansible | ok: [nuc3 -> localhost]
+2021-12-12 21:58:22,115 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Get the MAC address] ***********************************************************************************************
+2021-12-12 21:58:22,160 p=59630 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc1)
+2021-12-12 21:58:22,184 p=59630 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc2)
+2021-12-12 21:58:22,204 p=59630 u=simhaaj n=ansible | ok: [nuc1 -> localhost] => (item=nuc3)
+2021-12-12 21:58:22,223 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Print mac_list] ****************************************************************************************************
+2021-12-12 21:58:22,243 p=59630 u=simhaaj n=ansible | skipping: [nuc1]
+2021-12-12 21:58:22,254 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Make sure br_netfilter module is loaded] ***************************************************************************
+2021-12-12 21:58:22,760 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:22,761 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:22,763 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:22,776 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Add br_netfilter to k8s.conf file] *********************************************************************************
+2021-12-12 21:58:23,679 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:23,679 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:23,683 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:23,695 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Ensure iptables correctly see bridged traffic] *********************************************************************
+2021-12-12 21:58:24,287 p=59630 u=simhaaj n=ansible | ok: [nuc1]
+2021-12-12 21:58:24,299 p=59630 u=simhaaj n=ansible | ok: [nuc2]
+2021-12-12 21:58:24,313 p=59630 u=simhaaj n=ansible | ok: [nuc3]
+2021-12-12 21:58:24,324 p=59630 u=simhaaj n=ansible | TASK [02-k8s-prep : Run sysctl system] *************************************************************************************************
+2021-12-12 21:58:24,667 p=59630 u=simhaaj n=ansible | changed: [nuc1]
+2021-12-12 21:58:24,694 p=59630 u=simhaaj n=ansible | changed: [nuc3]
+2021-12-12 21:58:24,766 p=59630 u=simhaaj n=ansible | changed: [nuc2]
+2021-12-12 21:58:24,826 p=59630 u=simhaaj n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-12-12 21:58:24,826 p=59630 u=simhaaj n=ansible | nuc1                       : ok=12   changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2021-12-12 21:58:24,826 p=59630 u=simhaaj n=ansible | nuc2                       : ok=11   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2021-12-12 21:58:24,827 p=59630 u=simhaaj n=ansible | nuc3                       : ok=11   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

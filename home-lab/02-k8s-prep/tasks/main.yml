@@ -30,3 +30,25 @@
     mac_list | length != mac_list | unique | length
   delegate_to: localhost
   run_once: yes
+
+- name: Make sure br_netfilter module is loaded
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Add br_netfilter to k8s.conf file
+  copy: 
+    dest: "/etc/modules-load.d/k8s.conf"
+    content: |
+      br_netfilter
+
+- name: Ensure iptables correctly see bridged traffic
+  copy:
+    dest: /etc/sysctl.d/k8s.conf
+    content: |
+      net.bridge.bridge-nf-call-ip6tables = 1
+      net.bridge.bridge-nf-call-iptables = 1
+
+- name: Run sysctl system
+  shell: sysctl -p --system
+  become: yes
