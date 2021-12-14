@@ -1,9 +1,0 @@
----
-- hosts: nucs
-  gather_facts: True
-  vars:
-    docker_compose_version: "v2.2.2"
-  roles:
-    - 01-update-ubuntu
-    - 02-k8s-prep
-    - 03-docker-install
